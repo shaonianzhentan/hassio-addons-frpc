@@ -1,0 +1,27 @@
+name: "FRP Client"
+description: "A high-performance reverse proxy client (v0.66.0)."
+version: "0.66.0"
+slug: "frp_client"
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+init: false
+# 这里的 options 设置默认值，方便用户直接上手
+options:
+  server_addr: "1.2.3.4"
+  server_port: 7000
+  token: "your_password"
+  custom_config: |
+    [[proxies]]
+    name = "ha-web"
+    type = "tcp"
+    localIP = "127.0.0.1"
+    localPort = 8123
+    remotePort = 8123
+schema:
+  server_addr: str
+  server_port: port
+  token: password
+  custom_config: text
